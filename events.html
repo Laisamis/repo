@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laisamis TTI - Events</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1; /* Allows main content to grow and push footer down */
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Reusable Header: Start -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-blue-800">Laisamis TTI</a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="academic.html" class="text-gray-600 hover:text-blue-600">Academic</a>
+                    <a href="about.html" class="text-gray-600 hover:text-blue-600">About Us</a>
+                    <a href="Notices.html" class="text-blue-600 font-semibold">Notices</a>
+                    <a href="events.html" class="text-gray-600 hover:text-blue-600">Events</a>
+                    <a href="publications.html" class="text-gray-600 hover:text-blue-600">Publications</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact Us</a>
+                    <a href="admissions.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Apply Now</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-3">
+                <a href="index.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Home</a>
+                <a href="academic.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Academic</a>
+                <a href="about.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">About Us</a>
+                <a href="Notices.html" class="block py-2 px-4 text-sm text-blue-600 bg-gray-100">Notices</a>
+                <a href="events.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Events</a>
+                <a href="publications.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Publications</a>
+                <a href="contact.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Contact Us</a>
+                <a href="admissions.html" class="block py-2 px-4 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Apply Now</a>
+            </div>
+        </nav>
+    </header>
+    <!-- Reusable Header: End -->
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold text-blue-800 mb-4 leading-tight">Upcoming Events</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                Stay updated with the latest happenings, workshops, and celebrations at Laisamis TTI.
+            </p>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Event Card 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://placehold.co/600x400/e0e0e0/000000?text=Event+Image+1" alt="Event Image 1" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-2">Annual Career Fair 2025</h2>
+                    <p class="text-gray-600 text-sm mb-4 flex items-center">
+                        <i data-lucide="calendar" class="w-4 h-4 mr-2"></i> October 26, 2025
+                        <span class="mx-2">•</span>
+                        <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i> Main Campus Auditorium
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Join us for our annual career fair, connecting students with leading employers and internship opportunities across various industries. Don't miss this chance to network and explore your future career paths!
+                    </p>
+                    <a href="#" class="text-blue-600 hover:underline font-semibold flex items-center">
+                        Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Event Card 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://placehold.co/600x400/d0d0d0/000000?text=Event+Image+2" alt="Event Image 2" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-2">Innovation Challenge Showcase</h2>
+                    <p class="text-gray-600 text-sm mb-4 flex items-center">
+                        <i data-lucide="calendar" class="w-4 h-4 mr-2"></i> November 15, 2025
+                        <span class="mx-2">•</span>
+                        <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i> Innovation Hub
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Witness groundbreaking projects and innovative solutions developed by our talented students. This showcase highlights their creativity and problem-solving skills.
+                    </p>
+                    <a href="#" class="text-blue-600 hover:underline font-semibold flex items-center">
+                        Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Event Card 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://placehold.co/600x400/c0c0c0/000000?text=Event+Image+3" alt="Event Image 3" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-2">Annual Sports Day</h2>
+                    <p class="text-gray-600 text-sm mb-4 flex items-center">
+                        <i data-lucide="calendar" class="w-4 h-4 mr-2"></i> December 5, 2025
+                        <span class="mx-2">•</span>
+                        <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i> Institute Sports Grounds
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Cheer on our students as they compete in various sporting events. A day of fun, team spirit, and healthy competition for the entire Laisamis TTI community.
+                    </p>
+                    <a href="#" class="text-blue-600 hover:underline font-semibold flex items-center">
+                        Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section class="text-center mt-12">
+            <h2 class="text-3xl font-bold text-blue-700 mb-4">Past Events</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                Browse through our archives to see highlights from previous events.
+            </p>
+            <a href="#" class="inline-block bg-blue-600 text-white text-lg font-bold px-6 py-3 rounded-md shadow-lg hover:bg-blue-700 transition transform hover:scale-105">
+                View All Past Events
+            </a>
+        </section>
+    </main>
+
+    <!-- Reusable Footer: Start -->
+    <footer class="bg-gray-800 text-gray-300 py-10 font-inter">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Laisamis TTI</h3>
+                <p class="text-sm">
+                    Dedicated to providing quality technical and vocational training, empowering students for a brighter future.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-blue-400 transition text-sm">Home</a></li>
+                    <li><a href="academic.html" class="hover:text-blue-400 transition text-sm">Academic Programs</a></li>
+                    <li><a href="about.html" class="hover:text-blue-400 transition text-sm">About Us</a></li>
+                    <li><a href="tenders.html" class="hover:text-blue-400 transition text-sm">Tenders</a></li>
+                    <li><a href="events.html" class="hover:text-blue-400 transition text-sm">Events</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+                <p class="text-sm">
+                    Laisamis Town, Marsabit County, Kenya<br>
+                    Email: <a href="mailto:info@laisamistti.ac.ke" class="hover:text-blue-400 transition">info@laisamistti.ac.ke</a><br>
+                    Phone: <a href="tel:+254712345678" class="hover:text-blue-400 transition">+254 712 345 678</a>
+                </p>
+            </div>
+
+            <!-- Social Media -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="twitter" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
+            <p>&copy; <span id="current-year-footer"></span> Laisamis TTI. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Reusable Footer: End -->
+
+    <script>
+        // Initialize Lucide icons for the entire page
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Set current year for copyright in the footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laisamis TTI - Academic Programs</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1; /* Allows main content to grow and push footer down */
+        }
+        /* Custom styles for dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: #2563eb;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Reusable Header: Start -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-blue-800">Laisamis TTI</a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="academic.html" class="text-blue-600 font-semibold">Academic</a>
+                    <a href="about.html" class="text-gray-600 hover:text-blue-600">About Us</a>
+                    <a href="tenders.html" class="text-gray-600 hover:text-blue-600">Notices</a>
+                    <a href="events.html" class="text-gray-600 hover:text-blue-600">Events</a>
+                    <a href="publications.html" class="text-gray-600 hover:text-blue-600">Publications</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact Us</a>
+                    <a href="admissions.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Apply Now</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-3">
+                <a href="index.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Home</a>
+                <a href="academic.html" class="block py-2 px-4 text-sm text-blue-600 bg-gray-100">Academic</a>
+                <a href="about.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">About Us</a>
+                <a href="tenders.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Notices</a>
+                <a href="events.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Events</a>
+                <a href="publications.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Publications</a>
+                <a href="contact.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Contact Us</a>
+                <a href="admissions.html" class="block py-2 px-4 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Apply Now</a>
+            </div>
+        </nav>
+    </header>
+    <!-- Reusable Header: End -->
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold text-blue-800 mb-4 leading-tight">Academic Programs</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                Explore our diverse range of departments and programs designed to equip you with in-demand skills.
+            </p>
+        </section>
+
+        <section class="mb-12">
+            <div class="flex justify-center mb-8">
+                <div class="relative inline-block text-left dropdown">
+                    <button class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-lg font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Select a Department
+                        <i data-lucide="chevron-down" class="-mr-1 ml-2 h-5 w-5"></i>
+                    </button>
+                    <div class="dropdown-content" id="department-dropdown">
+                        <!-- Departments will be dynamically populated and sorted by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="department-content" class="bg-white p-8 rounded-lg shadow-md min-h-[400px]">
+                <p class="text-gray-600 text-center text-lg">Please select a department from the dropdown above to view its details.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reusable Footer: Start -->
+    <footer class="bg-gray-800 text-gray-300 py-10 font-inter">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Laisamis TTI</h3>
+                <p class="text-sm">
+                    Dedicated to providing quality technical and vocational training, empowering students for a brighter future.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-blue-400 transition text-sm">Home</a></li>
+                    <li><a href="academic.html" class="hover:text-blue-400 transition text-sm">Academic Programs</a></li>
+                    <li><a href="about.html" class="hover:text-blue-400 transition text-sm">About Us</a></li>
+                    <li><a href="tenders.html" class="hover:text-blue-400 transition text-sm">Notices</a></li>
+                    <li><a href="events.html" class="hover:text-blue-400 transition text-sm">Events</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+                <p class="text-sm">
+                    Laisamis Town, Marsabit County, Kenya<br>
+                    Email: <a href="mailto:info@laisamistti.ac.ke" class="hover:text-blue-400 transition">info@laisamistti.ac.ke</a><br>
+                    Phone: <a href="tel:+254712345678" class="hover:text-blue-400 transition">+254 712 345 678</a>
+                </p>
+            </div>
+
+            <!-- Social Media -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="twitter" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
+            <p>&copy; <span id="current-year-footer"></span> Laisamis TTI. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Reusable Footer: End -->
+
+    <script>
+        // Initialize Lucide icons for the entire page
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Set current year for copyright in the footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+
+        // Function to get admission requirements based on level
+        function getAdmissionRequirements(levels) {
+            const requirements = [];
+            levels.sort((a, b) => a - b); // Sort levels to display in order
+
+            levels.forEach(level => {
+                if (level === 3 || level === 4) {
+                    requirements.push(`Level ${level}: Minimum of E in KCSE or its equivalent.`);
+                } else if (level === 5) {
+                    requirements.push(`Level ${level}: Minimum of D (Plain) in KCSE or a Level 4 Qualification.`);
+                } else if (level === 6) {
+                    requirements.push(`Level ${level}: Minimum of C- (Minus) in KCSE or a Level 5 Qualification.`);
+                }
+            });
+            return requirements.join('<br>'); // Join with <br> for new lines
+        }
+
+        // Department content data
+        const departmentData = {
+            mechanical: {
+                title: "Department of Mechanical & Automotive Engineering",
+                message: "In the Department of Mechanical & Automotive Engineering, students gain practical skills in designing, manufacturing, and maintaining mechanical systems and vehicles. Our programs are vital for industries ranging from manufacturing to transportation.",
+                courses: [
+                    { name: "Automotive Technology", levels: [6, 5] },
+                    { name: "Automotive Mechanics", levels: [4, 3] },
+                    { name: "Motorcycle Mechanic", levels: [4, 3] },
+                    { name: "Autobody Technology", levels: [6, 5] },
+                    { name: "Spray Painting", levels: [4] },
+                    { name: "Panel Beating", levels: [3] },
+                    { name: "Welding", levels: [3, 4, 5, 6] }
+                ],
+                careerPaths: "Career opportunities include Mechanical Technicians, Automotive Mechanics, Plant Operators, Production Supervisors, Autobody Repair Technicians, and Welders.",
+                hodImage: "https://placehold.co/150x150/e0e0e0/000000?text=HoD+Mechanical"
+            },
+            computing: {
+                title: "Department of Computing & Informatics",
+                message: "Welcome to the Department of Computing & Informatics! We are at the forefront of technological education, preparing students for dynamic careers in the digital age. Our programs emphasize practical skills in software development, data management, networking, and cybersecurity.",
+                courses: [
+                    { name: "Information Communication Technology", levels: [3, 4, 5, 6] }
+                ],
+                careerPaths: "Graduates can pursue careers as Software Developers, Web Developers, Network Administrators, Database Administrators, IT Support Specialists, Cybersecurity Analysts, and Data Entry Clerks.",
+                hodImage: "https://placehold.co/150x150/e0e0e0/000000?text=HoD+Computing"
+            },
+            building: {
+                title: "Department of Building and Civil Engineering",
+                message: "Join the Department of Building and Civil Engineering to be part of constructing the future. Our programs focus on the design, construction, and maintenance of infrastructure, including buildings, roads, and bridges, with an emphasis on practical application and safety standards.",
+                courses: [
+                    { name: "Building Technology", levels: [6, 5] },
+                    { name: "Masonry", levels: [4, 3] },
+                    { name: "Plumbing", levels: [5, 4, 3] },
+                    { name: "Land Survey", levels: [6, 5] }
+                ],
+                careerPaths: "Potential careers include Civil Engineering Technicians, Construction Supervisors, Quantity Surveyors, Site Managers, Masons, Plumbers, and Land Surveyors.",
+                hodImage: "https://placehold.co/150x150/e0e0e0/000000?text=HoD+Building"
+            },
+            cosmetology: {
+                title: "Department of Cosmetology & Fashion Design",
+                message: "Unleash your creativity in the Department of Fashion Design & Cosmetology. We provide comprehensive training in garment creation, styling, beauty treatments, and salon management, fostering talent for the vibrant fashion and beauty industries.",
+                courses: [
+                    { name: "Cosmetology", levels: [3, 4, 5, 6] },
+                    { name: "Fashion Design", levels: [3, 4, 5, 6] }
+                ],
+                careerPaths: "Career options include Fashion Designers, Tailors, Beauticians, Hair Stylists, Makeup Artists, and Salon Managers.",
+                hodImage: "https://placehold.co/150x150/e0e0e0/000000?text=HoD+Fashion"
+            },
+            hospitality: {
+                title: "Department of Hospitality & Institutional Management",
+                message: "Discover the exciting world of hospitality and tourism with our dedicated department. We train students in hotel operations, culinary arts, travel management, and customer service, ensuring they are ready for diverse roles in this global industry.",
+                courses: [
+                    { name: "Food and Beverage Production / Service", levels: [3, 4] },
+                    { name: "Food and Beverage Operations", levels: [5] },
+                    { name: "Food and Beverage Management", levels: [6] },
+                    { name: "Wildlife Tour Guiding", levels: [4] },
+                    { name: "Tour Guiding", levels: [5] },
+                    { name: "Tour and Travel Management", levels: [6] }
+                ],
+                careerPaths: "Potential careers include Hotel Managers, Chefs, Tour Guides, Event Planners, Restaurant Managers, and Travel Agents.",
+                hodImage: "https://placehold.co/150x150/e0e0e0/000000?text=HoD+Hospitality"
+            },
+            electrical: {
+                title: "Department of Electrical and Electronics Engineering",
+                message: "The Department of Electrical and Electronics Engineering offers hands-on training in electrical systems, electronics, and telecommunications. Our programs prepare students for careers in power generation, industrial automation, and electronic device maintenance.",
+                courses: [
+                    { name: "Electrical Installation Technology", levels: [3, 4] },
+                    { name: "Electrical Engineering", levels: [5, 6] }
+                ],
+                careerPaths: "Graduates can work as Electrical Technicians, Electronics Technicians, Industrial Electricians, and Telecommunication Technicians.",
+                hodImage: "https://placehold.co/150x150/e0e0e0/000000?text=HoD+Electrical"
+            },
+            agriculture: {
+                title: "Department of Agriculture & Environmental Studies",
+                message: "The Department of Agriculture & Environmental Studies focuses on sustainable agricultural practices and environmental conservation. Our programs address modern farming techniques, food security, and ecological balance, preparing students to contribute to a greener future.",
+                courses: [
+                    { name: "General Agriculture", levels: [4] },
+                    { name: "Agriculture Extension", levels: [5, 6] }
+                ],
+                careerPaths: "Graduates can become Agricultural Extension Officers, Farm Managers, Environmental Technicians, and Agribusiness Entrepreneurs.",
+                hodImage: "https://placehold.co/150x150/e0e0e0/000000?text=HoD+Agriculture"
+            },
+            health: {
+                title: "Department of Health Sciences",
+                message: "The Department of Health Sciences is committed to training competent and compassionate healthcare professionals. Our programs combine theoretical knowledge with hands-on clinical experience, preparing students for vital roles in promoting public health and providing patient care.",
+                courses: [
+                    { name: "Nutrition and Dietetics", levels: [5, 6] },
+                    { name: "Community Health", levels: [5, 6] }
+                ],
+                careerPaths: "Graduates can work as Nutritionists, Dietitians, Community Health Workers, and Public Health Officers in hospitals, clinics, and public health organizations.",
+                hodImage: "https://placehold.co/150x150/e0e0e0/000000?text=HoD+Health"
+            },
+            liberal: {
+                title: "Department of Liberal Studies",
+                message: "The Department of Liberal Studies offers a broad foundation of knowledge, enhancing critical thinking, communication, and analytical skills. These programs are crucial for personal development and provide a versatile base for various professional fields.",
+                courses: [
+                    { name: "Social Work", levels: [5, 6] },
+                    { name: "Health Care Support Services", levels: [5] },
+                    { name: "Care Giving", levels: [4] },
+                    { name: "Home-based Care Support", levels: [3] }
+                ],
+                careerPaths: "Graduates can work in NGOs, community development, public relations, media, and various administrative roles.",
+                hodImage: "https://placehold.co/150x150/e0e0e0/000000?text=HoD+Liberal"
+            },
+            business: {
+                title: "Department of Business Studies",
+                message: "The Department of Business Studies is dedicated to nurturing future business leaders and entrepreneurs. Our curriculum covers essential aspects of modern business, including management, accounting, marketing, and human resources, equipping students with the skills to thrive in various industries.",
+                courses: [
+                    { name: "Office Administration", levels: [5, 6] },
+                    { name: "Office Assistant", levels: [4] },
+                    { name: "Accountancy", levels: [6] },
+                    { name: "Human Resource Management", levels: [6, 5] },
+                    { name: "Store Keeping", levels: [4] }
+                ],
+                careerPaths: "Career opportunities include roles as Business Managers, Accountants, Marketing Executives, HR Officers, Supply Chain Coordinators, and Entrepreneurs.",
+                hodImage: "https://placehold.co/150x150/e0e0e0/000000?text=HoD+Business"
+            }
+        };
+
+        // Function to display department content
+        function displayDepartmentContent(departmentKey) {
+            const contentDiv = document.getElementById('department-content');
+            const data = departmentData[departmentKey];
+
+            if (data) {
+                let coursesHtml = data.courses.map(course => {
+                    const levelStrings = course.levels.map(level => `Level ${level}`).join(', ');
+                    const requirements = getAdmissionRequirements(course.levels); // Pass all levels to the function
+                    return `
+                        <li class="mb-2 text-gray-700">
+                            <i data-lucide="check-circle" class="inline-block w-5 h-5 mr-2 text-green-500"></i>
+                            <strong>${course.name}</strong> (${levelStrings})
+                            <p class="text-sm text-gray-600 ml-7">Requirements: ${requirements}</p>
+                        </li>
+                    `;
+                }).join('');
+
+                if (coursesHtml) {
+                    coursesHtml = `<ul class="list-none p-0">${coursesHtml}</ul>`;
+                } else {
+                    coursesHtml = `<p class="text-gray-700">No specific courses listed for this department yet.</p>`;
+                }
+
+                contentDiv.innerHTML = `
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
+                        <div class="flex-shrink-0 text-center">
+                            <img src="${data.hodImage}" alt="Head of Department Image" class="w-32 h-32 rounded-full object-cover shadow-md mx-auto mb-2">
+                            <p class="text-sm font-semibold text-gray-700">Head of Department</p>
+                        </div>
+                        <div class="flex-grow text-center md:text-left">
+                            <h2 class="text-3xl font-bold text-blue-700 mb-2">${data.title}</h2>
+                            <p class="text-gray-800 leading-relaxed">${data.message}</p>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-3">Courses Offered:</h3>
+                    ${coursesHtml}
+                    <h3 class="text-2xl font-semibold text-blue-600 mt-6 mb-3">Career Paths:</h3>
+                    <p class="text-gray-800 leading-relaxed">${data.careerPaths}</p>
+                `;
+                lucide.createIcons(); // Re-initialize Lucide icons for newly added content
+            } else {
+                contentDiv.innerHTML = `
+                    <p class="text-gray-600 text-center text-lg">Department information not found. Please select a valid department.</p>
+                `;
+            }
+        }
+
+        // Get dropdown elements
+        const departmentDropdownContainer = document.getElementById('department-dropdown');
+        const departmentButton = departmentDropdownContainer.previousElementSibling; // The button that triggers the dropdown
+
+        // Populate and sort departments alphabetically
+        function populateDepartmentsDropdown() {
+            const departmentKeys = Object.keys(departmentData);
+            // Sort by the 'title' property of each department
+            departmentKeys.sort((a, b) => departmentData[a].title.localeCompare(departmentData[b].title));
+
+            departmentDropdownContainer.innerHTML = ''; // Clear existing
+            departmentKeys.forEach(key => {
+                const departmentTitle = departmentData[key].title;
+                const link = document.createElement('a');
+                link.href = "#";
+                link.dataset.department = key;
+                link.textContent = departmentTitle;
+                departmentDropdownContainer.appendChild(link);
+            });
+        }
+
+        // Event listener for department dropdown links
+        departmentDropdownContainer.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            const target = event.target;
+            if (target.tagName === 'A' && target.dataset.department) {
+                displayDepartmentContent(target.dataset.department);
+                // Hide the dropdown content after selection
+                departmentDropdownContainer.style.display = 'none';
+            }
+        });
+
+        // Event listener to toggle dropdown visibility when button is clicked
+        departmentButton.addEventListener('click', () => {
+            if (departmentDropdownContainer.style.display === 'block') {
+                departmentDropdownContainer.style.display = 'none';
+            } else {
+                departmentDropdownContainer.style.display = 'block';
+            }
+        });
+
+        // Hide dropdown if clicked outside
+        document.addEventListener('click', function(event) {
+            if (!departmentButton.contains(event.target) && !departmentDropdownContainer.contains(event.target)) {
+                departmentDropdownContainer.style.display = 'none';
+            }
+        });
+
+
+        // Initial population of departments on page load
+        populateDepartmentsDropdown();
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laisamis TTI - About Us</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1; /* Allows main content to grow and push footer down */
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Reusable Header: Start -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-blue-800">Laisamis TTI</a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="academic.html" class="text-gray-600 hover:text-blue-600">Academic</a>
+                    <a href="about.html" class="text-blue-600 font-semibold">About Us</a>
+                    <a href="tenders.html" class="text-gray-600 hover:text-blue-600">Tenders</a>
+                    <a href="events.html" class="text-gray-600 hover:text-blue-600">Events</a>
+                    <a href="publications.html" class="text-gray-600 hover:text-blue-600">Publications</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact Us</a>
+                    <a href="admissions.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Apply Now</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-3">
+                <a href="index.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Home</a>
+                <a href="academic.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Academic</a>
+                <a href="about.html" class="block py-2 px-4 text-sm text-blue-600 bg-gray-100">About Us</a>
+                <a href="tenders.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Tenders</a>
+                <a href="events.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Events</a>
+                <a href="publications.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Publications</a>
+                <a href="contact.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Contact Us</a>
+                <a href="admissions.html" class="block py-2 px-4 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Apply Now</a>
+            </div>
+        </nav>
+    </header>
+    <!-- Reusable Header: End -->
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold text-blue-800 mb-4 leading-tight">About Us</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                Learn more about the our vission bearers and the dedicated individuals leading our institution.
+            </p>
+        </section>
+
+        <!-- Message from the Board of Governors -->
+        <section class="bg-white p-8 rounded-lg shadow-md mb-12">
+            <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Message from the Board of Governors</h2>
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
+                <div class="flex-shrink-0 text-center">
+                    <img src="https://placehold.co/150x150/e0e0e0/000000?text=Board+Chairman" alt="Board Chairman Image" class="w-32 h-32 rounded-full object-cover shadow-md mx-auto mb-2">
+                    <p class="text-sm font-semibold text-gray-700">Board Chairman</p>
+                </div>
+                <div class="flex-grow text-center md:text-left">
+                    <p class="text-gray-800 leading-relaxed">
+                        "On behalf of the Board of Governors, I extend a warm welcome to Laisamis Technical Training Institute. Our commitment is to provide an environment that fosters innovation, practical skills, and holistic development. We believe in empowering our students to become valuable contributors to society and the economy. We are constantly striving to enhance our facilities and programs to meet the evolving demands of the job market and ensure our graduates are well-prepared for their chosen careers. Your success is our priority, and we are dedicated to supporting your journey at Laisamis TTI."
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-4 mt-8">Other Board Members:</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
+                    <img src="https://placehold.co/100x100/d0d0d0/000000?text=Member+1" alt="Board Member 1" class="w-24 h-24 rounded-full object-cover mx-auto mb-2">
+                    <p class="font-medium text-gray-800">Board Member 1</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
+                    <img src="https://placehold.co/100x100/d0d0d0/000000?text=Member+2" alt="Board Member 2" class="w-24 h-24 rounded-full object-cover mx-auto mb-2">
+                    <p class="font-medium text-gray-800">Board Member 2</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
+                    <img src="https://placehold.co/100x100/d0d0d0/000000?text=Member+3" alt="Board Member 3" class="w-24 h-24 rounded-full object-cover mx-auto mb-2">
+                    <p class="font-medium text-gray-800">Board Member 3</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
+                    <img src="https://placehold.co/100x100/d0d0d0/000000?text=Member+4" alt="Board Member 4" class="w-24 h-24 rounded-full object-cover mx-auto mb-2">
+                    <p class="font-medium text-gray-800">Board Member 4</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
+                    <img src="https://placehold.co/100x100/d0d0d0/000000?text=Member+5" alt="Board Member 5" class="w-24 h-24 rounded-full object-cover mx-auto mb-2">
+                    <p class="font-medium text-gray-800">Board Member 5</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
+                    <img src="https://placehold.co/100x100/d0d0d0/000000?text=Member+6" alt="Board Member 6" class="w-24 h-24 rounded-full object-cover mx-auto mb-2">
+                    <p class="font-medium text-gray-800">Board Member 6</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message from the Chief Principal -->
+        <section class="bg-white p-8 rounded-lg shadow-md mb-12">
+            <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Message from the Chief Principal</h2>
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
+                <div class="flex-shrink-0 text-center">
+                    <img src="https://placehold.co/150x150/e0e0e0/000000?text=Chief+Principal" alt="Chief Principal Image" class="w-32 h-32 rounded-full object-cover shadow-md mx-auto mb-2">
+                    <p class="text-sm font-semibold text-gray-700">Chief Principal</p>
+                </div>
+                <div class="flex-grow text-center md:text-left">
+                    <p class="text-gray-800 leading-relaxed">
+                        "It is with immense pleasure that I welcome you to Laisamis Technical Training Institute. As Chief Principal, I am proud to lead an institution that is dedicated to academic excellence, practical skills development, and fostering a vibrant learning community. Our goal is to empower every student with the knowledge and competencies needed to excel in their chosen fields and contribute meaningfully to national development. We encourage you to take full advantage of the resources and opportunities available here, and we look forward to witnessing your growth and success."
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-4 mt-8">Other Management Members:</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
+                    <img src="https://placehold.co/100x100/d0d0d0/000000?text=DP+Admin" alt="Deputy Principal Admin & Finance" class="w-24 h-24 rounded-full object-cover mx-auto mb-2">
+                    <p class="font-medium text-gray-800">Deputy Principal<br>Admin & Finance</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
+                    <img src="https://placehold.co/100x100/d0d0d0/000000?text=DP+Acad" alt="Deputy Principal Academic Affairs" class="w-24 h-24 rounded-full object-cover mx-auto mb-2">
+                    <p class="font-medium text-gray-800">Deputy Principal<br>Academic Affairs</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
+                    <img src="https://placehold.co/100x100/d0d0d0/000000?text=Registrar" alt="Registrar Academics & Admissions" class="w-24 h-24 rounded-full object-cover mx-auto mb-2">
+                    <p class="font-medium text-gray-800">Registrar<br>Academics & Admissions</p>
+                </div>
+                <!-- New: Dean of Students -->
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
+                    <img src="https://placehold.co/100x100/d0d0d0/000000?text=Dean+Students" alt="Dean of Students" class="w-24 h-24 rounded-full object-cover mx-auto mb-2">
+                    <p class="font-medium text-gray-800">Dean of Students</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reusable Footer: Start -->
+    <footer class="bg-gray-800 text-gray-300 py-10 font-inter">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Laisamis TTI</h3>
+                <p class="text-sm">
+                    Dedicated to providing quality technical and vocational training, empowering students for a brighter future.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-blue-400 transition text-sm">Home</a></li>
+                    <li><a href="academic.html" class="hover:text-blue-400 transition text-sm">Academic Programs</a></li>
+                    <li><a href="about.html" class="hover:text-blue-400 transition text-sm">About Us</a></li>
+                    <li><a href="tenders.html" class="hover:text-blue-400 transition text-sm">Tenders</a></li>
+                    <li><a href="events.html" class="hover:text-blue-400 transition text-sm">Events</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+                <p class="text-sm">
+                    Laisamis Town, Marsabit County, Kenya<br>
+                    Email: <a href="mailto:info@laisamistti.ac.ke" class="hover:text-blue-400 transition">info@laisamistti.ac.ke</a><br>
+                    Phone: <a href="tel:+254712345678" class="hover:text-blue-400 transition">+254 712 345 678</a>
+                </p>
+            </div>
+
+            <!-- Social Media -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="twitter" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
+            <p>&copy; <span id="current-year-footer"></span> Laisamis TTI. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Reusable Footer: End -->
+
+    <script>
+        // Initialize Lucide icons for the entire page
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Set current year for copyright in the footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

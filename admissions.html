@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laisamis TTI - Apply Now</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1; /* Allows main content to grow and push footer down */
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Reusable Header: Start -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-blue-800 flex items-center">
+                    <img src="http://googleusercontent.com/file_content/1" alt="Laisamis TTI Logo" class="h-10 w-10 mr-2 rounded-full object-contain">
+                    Laisamis TTI
+                </a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="academic.html" class="text-gray-600 hover:text-blue-600">Academic</a>
+                    <a href="about.html" class="text-gray-600 hover:text-blue-600">About Us</a>
+                    <a href="tenders.html" class="text-gray-600 hover:text-blue-600">Notices</a>
+                    <a href="events.html" class="text-gray-600 hover:text-blue-600">Events</a>
+                    <a href="publications.html" class="text-gray-600 hover:text-blue-600">Publications</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact Us</a>
+                    <a href="admissions.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Apply Now</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-3">
+                <a href="index.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Home</a>
+                <a href="academic.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Academic</a>
+                <a href="about.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">About Us</a>
+                <a href="tenders.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Notices</a>
+                <a href="events.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Events</a>
+                <a href="publications.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Publications</a>
+                <a href="contact.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Contact Us</a>
+                <a href="admissions.html" class="block py-2 px-4 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Apply Now</a>
+            </div>
+        </nav>
+    </header>
+    <!-- Reusable Header: End -->
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold text-blue-800 mb-4 leading-tight">Apply for Admission</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                Fill out the form below to submit your application to Laisamis TTI.
+            </p>
+        </section>
+
+        <section class="bg-white p-8 rounded-lg shadow-md max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Application Form</h2>
+            <form id="admissionForm" class="space-y-6">
+                <div>
+                    <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="John Doe">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address (for Calling Letter)</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="john.doe@example.com">
+                </div>
+                <div>
+                    <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="+2547XXXXXXXX">
+                </div>
+                <div>
+                    <label for="kcseIndex" class="block text-sm font-medium text-gray-700 mb-1">KCSE Index Number</label>
+                    <input type="text" id="kcseIndex" name="kcseIndex" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="XXXXXXX/YYYY">
+                </div>
+                <div>
+                    <label for="kcseGrade" class="block text-sm font-medium text-gray-700 mb-1">KCSE Mean Grade</label>
+                    <select id="kcseGrade" name="kcseGrade" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <option value="">Select Grade</option>
+                        <option value="A">A</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B">B</option>
+                        <option value="B-">B-</option>
+                        <option value="C+">C+</option>
+                        <option value="C">C</option>
+                        <option value="C-">C-</option>
+                        <option value="D+">D+</option>
+                        <option value="D">D</option>
+                        <option value="D-">D-</option>
+                        <option value="E">E</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="preferredDepartment" class="block text-sm font-medium text-gray-700 mb-1">Preferred Department</label>
+                    <select id="preferredDepartment" name="preferredDepartment" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <option value="">Select a Department</option>
+                        <option value="mechanical">Mechanical & Automotive Engineering</option>
+                        <option value="computing">Computing & Informatics</option>
+                        <option value="building">Building and Civil Engineering</option>
+                        <option value="cosmetology">Cosmetology & Fashion Design</option>
+                        <option value="hospitality">Hospitality & Institutional Management</option>
+                        <option value="electrical">Electrical and Electronics Engineering</option>
+                        <option value="agriculture">Agriculture & Environmental Studies</option>
+                        <option value="health">Health Sciences</option>
+                        <option value="liberal">Liberal Studies</option>
+                        <option value="business">Business Studies</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="preferredCourse" class="block text-sm font-medium text-gray-700 mb-1">Preferred Course & Level</label>
+                    <select id="preferredCourse" name="preferredCourse" required disabled class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <option value="">Select a Department and KCSE Grade first</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="kcseCert" class="block text-sm font-medium text-gray-700 mb-1">Upload Clear KCSE Certificate (PDF Scan)</label>
+                    <input type="file" id="kcseCert" name="kcseCert" accept="application/pdf" required class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none">
+                    <p class="mt-1 text-sm text-gray-500">PDF files only (max 5MB).</p>
+                </div>
+
+                <div id="messageBox" class="hidden p-4 text-sm rounded-md" role="alert"></div>
+
+                <button type="submit" class="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                    Submit Application
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Reusable Footer: Start -->
+    <footer class="bg-gray-800 text-gray-300 py-10 font-inter">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Laisamis TTI</h3>
+                <p class="text-sm">
+                    Dedicated to providing quality technical and vocational training, empowering students for a brighter future.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-blue-400 transition text-sm">Home</a></li>
+                    <li><a href="academic.html" class="hover:text-blue-400 transition text-sm">Academic Programs</a></li>
+                    <li><a href="about.html" class="hover:text-blue-400 transition text-sm">About Us</a></li>
+                    <li><a href="tenders.html" class="hover:text-blue-400 transition text-sm">Notices</a></li>
+                    <li><a href="events.html" class="hover:text-blue-400 transition text-sm">Events</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+                <p class="text-sm">
+                    Laisamis Town, Marsabit County, Kenya<br>
+                    Email: <a href="mailto:info@laisamistti.ac.ke" class="hover:text-blue-400 transition">info@laisamistti.ac.ke</a><br>
+                    Phone: <a href="tel:+254712345678" class="hover:text-blue-400 transition">+254 712 345 678</a>
+                </p>
+            </div>
+
+            <!-- Social Media -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="twitter" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
+            <p>&copy; <span id="current-year-footer"></span> Laisamis TTI. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Reusable Footer: End -->
+
+    <script>
+        // Initialize Lucide icons for the entire page
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Set current year for copyright in the footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+
+        // KCSE Grade to Value Mapping
+        const kcseGradeValues = {
+            'E': 1,
+            'D-': 2,
+            'D': 3,
+            'D+': 4,
+            'C-': 5,
+            'C': 6,
+            'C+': 7,
+            'B-': 8,
+            'B': 9,
+            'B+': 10,
+            'A-': 11,
+            'A': 12
+        };
+
+        // Course Level to Minimum KCSE Grade Value Requirement
+        const courseLevelRequirements = {
+            '3': 1, // Minimum E
+            '4': 1, // Minimum E
+            '5': 3, // Minimum D
+            '6': 5  // Minimum C-
+        };
+
+        // Department and Course Data
+        const departmentData = {
+            mechanical: {
+                courses: [
+                    { name: "Automotive Technology", levels: [6, 5] },
+                    { name: "Automotive Mechanics", levels: [4, 3] },
+                    { name: "Motorcycle Mechanic", levels: [4, 3] },
+                    { name: "Autobody Technology", levels: [6, 5] },
+                    { name: "Spray Painting", levels: [4] },
+                    { name: "Panel Beating", levels: [3] },
+                    { name: "Welding", levels: [3, 4, 5, 6] }
+                ]
+            },
+            computing: {
+                courses: [
+                    { name: "Information Communication Technology", levels: [3, 4, 5, 6] }
+                ]
+            },
+            building: {
+                courses: [
+                    { name: "Building Technology", levels: [6, 5] },
+                    { name: "Masonry", levels: [4, 3] },
+                    { name: "Plumbing", levels: [5, 4, 3] },
+                    { name: "Land Survey", levels: [6, 5] }
+                ]
+            },
+            cosmetology: {
+                courses: [
+                    { name: "Cosmetology", levels: [3, 4, 5, 6] },
+                    { name: "Fashion Design", levels: [3, 4, 5, 6] }
+                ]
+            },
+            hospitality: {
+                courses: [
+                    { name: "Food and Beverage Production / Service", levels: [3, 4] },
+                    { name: "Food and Beverage Operations", levels: [5] },
+                    { name: "Food and Beverage Management", levels: [6] },
+                    { name: "Wildlife Tour Guiding", levels: [4] },
+                    { name: "Tour Guiding", levels: [5] },
+                    { name: "Tour and Travel Management", levels: [6] }
+                ]
+            },
+            electrical: {
+                courses: [
+                    { name: "Electrical Installation Technology", levels: [3, 4] },
+                    { name: "Electrical Engineering", levels: [5, 6] }
+                ]
+            },
+            agriculture: {
+                courses: [
+                    { name: "General Agriculture", levels: [4] },
+                    { name: "Agriculture Extension", levels: [5, 6] }
+                ]
+            },
+            health: {
+                courses: [
+                    { name: "Nutrition and Dietetics", levels: [5, 6] },
+                    { name: "Community Health", levels: [5, 6] }
+                ]
+            },
+            liberal: {
+                courses: [
+                    { name: "Social Work", levels: [5, 6] },
+                    { name: "Health Care Support Services", levels: [5] },
+                    { name: "Care Giving", levels: [4] },
+                    { name: "Home-based Care Support", levels: [3] }
+                ]
+            },
+            business: {
+                courses: [
+                    { name: "Office Administration", levels: [5, 6] },
+                    { name: "Office Assistant", levels: [4] },
+                    { name: "Accountancy", levels: [6] },
+                    { name: "Human Resource Management", levels: [6, 5] },
+                    { name: "Store Keeping", levels: [4] }
+                ]
+            }
+        };
+
+        const kcseGradeSelect = document.getElementById('kcseGrade');
+        const preferredDepartmentSelect = document.getElementById('preferredDepartment');
+        const preferredCourseSelect = document.getElementById('preferredCourse');
+
+        function populateCourses() {
+            const selectedGrade = kcseGradeSelect.value;
+            const selectedDepartment = preferredDepartmentSelect.value;
+            preferredCourseSelect.innerHTML = '<option value="">Select a Course</option>'; // Reset courses
+
+            if (!selectedGrade || !selectedDepartment) {
+                preferredCourseSelect.disabled = true;
+                preferredCourseSelect.innerHTML = '<option value="">Select a Department and KCSE Grade first</option>';
+                return;
+            }
+
+            const applicantGradeValue = kcseGradeValues[selectedGrade];
+            const department = departmentData[selectedDepartment];
+
+            if (department) {
+                preferredCourseSelect.disabled = false;
+                department.courses.forEach(course => {
+                    course.levels.forEach(level => {
+                        const requiredGradeValue = courseLevelRequirements[level];
+                        if (applicantGradeValue >= requiredGradeValue) {
+                            const option = document.createElement('option');
+                            option.value = `${course.name} - Level ${level}`;
+                            option.textContent = `${course.name} - Level ${level}`;
+                            preferredCourseSelect.appendChild(option);
+                        }
+                    });
+                });
+                if (preferredCourseSelect.options.length === 1) { // Only "Select a Course" option
+                    preferredCourseSelect.innerHTML = '<option value="">No qualifying courses for this grade in this department.</option>';
+                    preferredCourseSelect.disabled = true;
+                }
+            } else {
+                preferredCourseSelect.disabled = true;
+                preferredCourseSelect.innerHTML = '<option value="">Select a Department first</option>';
+            }
+        }
+
+        // Event Listeners for changes
+        kcseGradeSelect.addEventListener('change', populateCourses);
+        preferredDepartmentSelect.addEventListener('change', populateCourses);
+
+        // Initial population (in case of pre-filled values or on page load)
+        populateCourses();
+
+
+        // Handle form submission
+        document.getElementById('admissionForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const messageBox = document.getElementById('messageBox');
+            messageBox.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const preferredCourse = document.getElementById('preferredCourse').value;
+            const kcseIndex = document.getElementById('kcseIndex').value;
+            const kcseGrade = document.getElementById('kcseGrade').value;
+            const kcseCert = document.getElementById('kcseCert').files[0];
+
+            // Basic validation
+            if (!fullName || !email || !phoneNumber || !preferredCourse || !kcseIndex || !kcseGrade || !kcseCert) {
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+                messageBox.textContent = 'Please fill in all required fields and upload your KCSE Certificate.';
+                messageBox.classList.remove('hidden');
+                return;
+            }
+
+            if (kcseCert.type !== 'application/pdf') {
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+                messageBox.textContent = 'Please upload a PDF file for your KCSE Certificate.';
+                messageBox.classList.remove('hidden');
+                return;
+            }
+
+            if (kcseCert.size > 5 * 1024 * 1024) { // Max 5MB
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+                messageBox.textContent = 'KCSE Certificate file size must not exceed 5MB.';
+                messageBox.classList.remove('hidden');
+                return;
+            }
+
+            // Simulate backend processing
+            console.log('Form Data:', {
+                fullName,
+                email,
+                phoneNumber,
+                preferredCourse,
+                kcseIndex,
+                kcseGrade,
+                kcseCertName: kcseCert.name,
+                kcseCertSize: kcseCert.size
+            });
+
+            // In a real application, you would send this data to your backend server here.
+            // Example of how a fetch request *would* look (this won't work without a backend):
+            /*
+            const formData = new FormData();
+            formData.append('fullName', fullName);
+            formData.append('email', email);
+            formData.append('phoneNumber', phoneNumber);
+            formData.append('preferredCourse', preferredCourse);
+            formData.append('kcseIndex', kcseIndex);
+            formData.append('kcseGrade', kcseGrade);
+            formData.append('kcseCert', kcseCert);
+
+            fetch('/api/admissions', { // This endpoint would be on your server
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    messageBox.classList.add('bg-green-100', 'text-green-800');
+                    messageBox.textContent = 'Application submitted successfully! A calling letter will be sent to your email address shortly.';
+                    document.getElementById('admissionForm').reset(); // Clear form
+                } else {
+                    messageBox.classList.add('bg-red-100', 'text-red-800');
+                    messageBox.textContent = 'Application failed: ' + (data.message || 'Please try again.');
+                }
+                messageBox.classList.remove('hidden');
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+                messageBox.textContent = 'An error occurred during submission. Please try again later.';
+                messageBox.classList.remove('hidden');
+            });
+            */
+
+            // Simulation for demonstration purposes:
+            setTimeout(() => {
+                messageBox.classList.add('bg-green-100', 'text-green-800');
+                messageBox.textContent = 'Application submitted successfully! A calling letter will be sent to your email address shortly. (Note: This is a simulation. Actual file storage and email sending require a backend server.)';
+                messageBox.classList.remove('hidden');
+                document.getElementById('admissionForm').reset(); // Clear form after simulated success
+            }, 1500); // Simulate network delay
+        });
+    </script>
+</body>
+</html>

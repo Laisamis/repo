@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laisamis TTI - Notices & Job Adverts</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1; /* Allows main content to grow and push footer down */
+        }
+        .status-open {
+            background-color: #d1fae5; /* Tailwind green-100 */
+            color: #065f46; /* Tailwind green-800 */
+        }
+        .status-closed {
+            background-color: #fee2e2; /* Tailwind red-100 */
+            color: #991b1b; /* Tailwind red-800 */
+        }
+        /* General Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            overflow-y: auto; /* Allow scrolling for long forms */
+            padding: 1rem; /* Padding around the modal content */
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* Max width for the form */
+            width: 100%;
+            position: relative; /* For close button positioning */
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6B7280; /* Tailwind gray-500 */
+        }
+        .modal-close-button:hover {
+            color: #1F2937; /* Tailwind gray-900 */
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Reusable Header: Start -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-blue-800">Laisamis TTI</a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="academic.html" class="text-gray-600 hover:text-blue-600">Academic</a>
+                    <a href="about.html" class="text-gray-600 hover:text-blue-600">About Us</a>
+                    <a href="tenders.html" class="text-blue-600 font-semibold">Notices</a>
+                    <a href="events.html" class="text-gray-600 hover:text-blue-600">Events</a>
+                    <a href="publications.html" class="text-gray-600 hover:text-blue-600">Publications</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact Us</a>
+                    <a href="admissions.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Apply Now</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-3">
+                <a href="index.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Home</a>
+                <a href="academic.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Academic</a>
+                <a href="about.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">About Us</a>
+                <a href="tenders.html" class="block py-2 px-4 text-sm text-blue-600 bg-gray-100">Notices</a>
+                <a href="events.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Events</a>
+                <a href="publications.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Publications</a>
+                <a href="contact.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Contact Us</a>
+                <a href="admissions.html" class="block py-2 px-4 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Apply Now</a>
+            </div>
+        </nav>
+    </header>
+    <!-- Reusable Header: End -->
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold text-blue-800 mb-4 leading-tight">Notices & Job Adverts</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                Discover current opportunities for notices and employment at Laisamis TTI.
+            </p>
+        </section>
+
+        <!-- Notices Section -->
+        <section class="bg-white p-8 rounded-lg shadow-md mb-12">
+            <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Current Notices</h2>
+            <div id="tenders-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tender cards will be dynamically inserted here -->
+            </div>
+            <p class="text-center text-gray-600 mt-8" id="no-tenders-message" style="display: none;">No current notices available at this time. Please check back later.</p>
+        </section>
+
+        <!-- Job Adverts Section -->
+        <section class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Job Adverts</h2>
+            <div id="jobs-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Job advert cards will be dynamically inserted here -->
+            </div>
+            <p class="text-center text-gray-600 mt-8" id="no-jobs-message" style="display: none;">No job adverts available at this time. Please check back later.</p>
+        </section>
+
+    </main>
+
+    <!-- General Status Modal Structure (for closed tenders/adverts) -->
+    <div id="statusModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4" id="modalTitle"></h3>
+            <p class="text-gray-700 mb-6" id="modalMessage"></p>
+            <button id="closeStatusModal" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Close</button>
+        </div>
+    </div>
+
+    <!-- Job Application Form Modal Structure -->
+    <div id="jobApplicationModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-button" id="closeJobApplicationModal">
+                <i data-lucide="x"></i>
+            </button>
+            <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2">Apply for Position</h2>
+            <form id="jobApplicationForm" class="space-y-6">
+                <div>
+                    <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="John Doe">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="john.doe@example.com">
+                </div>
+                <div>
+                    <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="+2547XXXXXXXX">
+                </div>
+                <div>
+                    <label for="positionApplied" class="block text-sm font-medium text-gray-700 mb-1">Position Applied For</label>
+                    <input type="text" id="positionApplied" name="positionApplied" required readonly class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 cursor-not-allowed sm:text-sm">
+                </div>
+                <div>
+                    <label for="resume" class="block text-sm font-medium text-gray-700 mb-1">Upload Resume/CV (PDF)</label>
+                    <input type="file" id="resume" name="resume" accept="application/pdf" required class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none">
+                    <p class="mt-1 text-sm text-gray-500">PDF files only (max 10MB).</p>
+                </div>
+                <div>
+                    <label for="coverLetter" class="block text-sm font-medium text-gray-700 mb-1">Upload Cover Letter (PDF - Optional)</label>
+                    <input type="file" id="coverLetter" name="coverLetter" accept="application/pdf" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none">
+                    <p class="mt-1 text-sm text-gray-500">PDF files only (max 5MB).</p>
+                </div>
+
+                <div id="jobMessageBox" class="hidden p-4 text-sm rounded-md" role="alert"></div>
+
+                <button type="submit" class="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                    Submit Application
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Reusable Footer: Start -->
+    <footer class="bg-gray-800 text-gray-300 py-10 font-inter">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Laisamis TTI</h3>
+                <p class="text-sm">
+                    Dedicated to providing quality technical and vocational training, empowering students for a brighter future.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-blue-400 transition text-sm">Home</a></li>
+                    <li><a href="academic.html" class="hover:text-blue-400 transition text-sm">Academic Programs</a></li>
+                    <li><a href="about.html" class="hover:text-blue-400 transition text-sm">About Us</a></li>
+                    <li><a href="tenders.html" class="hover:text-blue-400 transition text-sm">Notices</a>
+                    </li>
+                    <li><a href="events.html" class="hover:text-blue-400 transition text-sm">Events</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+                <p class="text-sm">
+                    Laisamis Town, Marsabit County, Kenya<br>
+                    Email: <a href="mailto:info@laisamistech.ac.ke" class="hover:text-blue-400 transition">info@laisamistech.ac.ke</a><br>
+                    Phone: <a href="tel:+254700303300" class="hover:text-blue-400 transition">0700 303300</a>
+                </p>
+            </div>
+
+            <!-- Social Media -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="twitter" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
+            <p>&copy; <span id="current-year-footer"></span> Laisamis TTI. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Reusable Footer: End -->
+
+    <script>
+        // Initialize Lucide icons for the entire page
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Set current year for copyright in the footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+
+        // General Status Modal elements
+        const statusModal = document.getElementById('statusModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeStatusModalButton = document.getElementById('closeStatusModal');
+
+        // Job Application Modal elements
+        const jobApplicationModal = document.getElementById('jobApplicationModal');
+        const closeJobApplicationModalButton = document.getElementById('closeJobApplicationModal');
+        const jobApplicationForm = document.getElementById('jobApplicationForm');
+        const positionAppliedInput = document.getElementById('positionApplied');
+        const jobMessageBox = document.getElementById('jobMessageBox');
+
+        // Function to show the general status modal
+        function showStatusModal(title, message) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            statusModal.classList.remove('hidden');
+        }
+
+        // Function to hide the general status modal
+        function hideStatusModal() {
+            statusModal.classList.add('hidden');
+        }
+
+        // Function to show the job application modal
+        function showJobApplicationModal(positionTitle) {
+            positionAppliedInput.value = positionTitle;
+            jobMessageBox.classList.add('hidden'); // Hide previous messages
+            jobApplicationForm.reset(); // Clear form fields
+            jobApplicationModal.classList.remove('hidden');
+        }
+
+        // Function to hide the job application modal
+        function hideJobApplicationModal() {
+            jobApplicationModal.classList.add('hidden');
+        }
+
+        // Close modal event listeners
+        closeStatusModalButton.addEventListener('click', hideStatusModal);
+        statusModal.addEventListener('click', (event) => {
+            if (event.target === statusModal) {
+                hideStatusModal();
+            }
+        });
+
+        closeJobApplicationModalButton.addEventListener('click', hideJobApplicationModal);
+        jobApplicationModal.addEventListener('click', (event) => {
+            if (event.target === jobApplicationModal) {
+                hideJobApplicationModal();
+            }
+        });
+
+
+        // Data for Tenders and Job Adverts
+        const tendersData = [
+            {
+                id: 'tender1',
+                title: 'Supply of Office Stationery',
+                description: 'Tender for the supply of various office stationery items for the academic year 2024/2025.',
+                deadline: '2025-08-30T17:00:00', // YYYY-MM-DDTHH:MM:SS
+                documentUrl: 'documents/tender1.pdf', // Placeholder for actual document URL
+            },
+            {
+                id: 'tender2',
+                title: 'Construction of New Workshop Block',
+                description: 'Tender for the construction of a new mechanical engineering workshop block.',
+                deadline: '2025-09-15T12:00:00',
+                documentUrl: 'documents/tender2.pdf',
+            },
+            {
+                id: 'tender3',
+                title: 'Provision of Cleaning Services',
+                description: 'Tender for comprehensive cleaning and sanitation services for the institute premises.',
+                deadline: '2025-07-25T10:00:00', // This one will be "Closed" if current date is past July 25, 2025
+                documentUrl: 'documents/tender3.pdf',
+            }
+        ];
+
+        const jobsData = [
+            {
+                id: 'job1',
+                title: 'Lecturer - Computing & Informatics',
+                description: 'We are seeking a qualified and experienced lecturer for our Computing & Informatics department.',
+                deadline: '2025-08-20T23:59:59',
+            },
+            {
+                id: 'job2',
+                title: 'Farm Manager',
+                description: 'Opportunity for a skilled Farm Manager to oversee our agricultural projects and training farm.',
+                deadline: '2025-09-01T23:59:59',
+            },
+            {
+                id: 'job3',
+                title: 'Administrative Assistant',
+                description: 'An administrative assistant is needed to support the academic affairs department.',
+                deadline: '2025-07-10T17:00:00', // This one will be "Closed" if current date is past July 10, 2025
+            }
+        ];
+
+        // Function to render cards
+        function renderCards(data, containerId, type) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            container.innerHTML = '';
+            const now = new Date();
+
+            if (data.length === 0) {
+                document.getElementById(`no-${containerId.split('-')[0]}-message`).style.display = 'block';
+                return;
+            } else {
+                 document.getElementById(`no-${containerId.split('-')[0]}-message`).style.display = 'none';
+            }
+
+            data.forEach(item => {
+                const deadlineDate = new Date(item.deadline);
+                const status = now < deadlineDate ? 'Open' : 'Closed';
+                const statusClass = now < deadlineDate ? 'status-open' : 'status-closed';
+                const buttonText = type === 'tender' ? 'View Document' : 'Apply Now';
+                const buttonIcon = type === 'tender' ? 'download' : 'external-link';
+
+                let actionHtml;
+                if (status === 'Closed') {
+                    actionHtml = `
+                        <button type="button" class="inline-flex items-center text-red-600 hover:underline font-semibold closed-action-button"
+                                data-type="${type}" data-title="${item.title}">
+                            ${buttonText} <i data-lucide="${buttonIcon}" class="w-4 h-4 ml-2"></i>
+                        </button>
+                    `;
+                } else {
+                    if (type === 'tender') {
+                        actionHtml = `
+                            <a href="${item.documentUrl}" target="_blank" class="inline-flex items-center text-blue-600 hover:underline font-semibold">
+                                ${buttonText} <i data-lucide="${buttonIcon}" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        `;
+                    } else { // type === 'job'
+                        actionHtml = `
+                            <button type="button" class="inline-flex items-center text-blue-600 hover:underline font-semibold open-job-button"
+                                    data-title="${item.title}">
+                                ${buttonText} <i data-lucide="${buttonIcon}" class="w-4 h-4 ml-2"></i>
+                            </button>
+                        `;
+                    }
+                }
+
+                const cardHtml = `
+                    <div class="bg-gray-50 rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">${item.title}</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">${item.description}</p>
+                            <div class="flex items-center justify-between text-sm mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold ${statusClass}">
+                                    ${status}
+                                </span>
+                                <span class="text-gray-600 flex items-center">
+                                    <i data-lucide="calendar" class="w-4 h-4 mr-1"></i> Deadline: ${deadlineDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                ${actionHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', cardHtml);
+            });
+
+            lucide.createIcons(); // Re-initialize Lucide icons for newly added content
+            addEventListeners(); // Add listeners for newly created buttons
+        }
+
+        // Function to add all relevant event listeners
+        function addEventListeners() {
+            // Listeners for closed tender/job buttons
+            document.querySelectorAll('.closed-action-button').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const type = event.currentTarget.dataset.type;
+                    const title = event.currentTarget.dataset.title;
+                    let message = '';
+                    if (type === 'tender') {
+                        message = `The tender "${title}" is now closed for applications.`;
+                    } else if (type === 'job') {
+                        message = `Applications for the position of "${title}" are now closed.`;
+                    }
+                    showStatusModal('Application Closed', message);
+                });
+            });
+
+            // Listeners for open job application buttons
+            document.querySelectorAll('.open-job-button').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const title = event.currentTarget.dataset.title;
+                    showJobApplicationModal(title);
+                });
+            });
+        }
+
+        // Handle job application form submission (simulated)
+        jobApplicationForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            jobMessageBox.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const positionApplied = document.getElementById('positionApplied').value;
+            const resume = document.getElementById('resume').files[0];
+            const coverLetter = document.getElementById('coverLetter').files[0]; // Optional
+
+            // Basic validation
+            if (!fullName || !email || !phoneNumber || !positionApplied || !resume) {
+                jobMessageBox.classList.add('bg-red-100', 'text-red-800');
+                jobMessageBox.textContent = 'Please fill in all required fields and upload your Resume/CV.';
+                jobMessageBox.classList.remove('hidden');
+                return;
+            }
+
+            if (resume.type !== 'application/pdf') {
+                jobMessageBox.classList.add('bg-red-100', 'text-red-800');
+                jobMessageBox.textContent = 'Please upload a PDF file for your Resume/CV.';
+                jobMessageBox.classList.remove('hidden');
+                return;
+            }
+
+            if (resume.size > 10 * 1024 * 1024) { // Max 10MB
+                jobMessageBox.classList.add('bg-red-100', 'text-red-800');
+                jobMessageBox.textContent = 'Resume/CV file size must not exceed 10MB.';
+                jobMessageBox.classList.remove('hidden');
+                return;
+            }
+
+            if (coverLetter && coverLetter.type !== 'application/pdf') {
+                jobMessageBox.classList.add('bg-red-100', 'text-red-800');
+                jobMessageBox.textContent = 'Please upload a PDF file for your Cover Letter.';
+                jobMessageBox.classList.remove('hidden');
+                return;
+            }
+
+            if (coverLetter && coverLetter.size > 5 * 1024 * 1024) { // Max 5MB
+                jobMessageBox.classList.add('bg-red-100', 'text-red-800');
+                jobMessageBox.textContent = 'Cover Letter file size must not exceed 5MB.';
+                jobMessageBox.classList.remove('hidden');
+                return;
+            }
+
+            // Simulate backend processing
+            console.log('Job Application Data:', {
+                fullName,
+                email,
+                phoneNumber,
+                positionApplied,
+                resumeName: resume.name,
+                resumeSize: resume.size,
+                coverLetterName: coverLetter ? coverLetter.name : 'N/A',
+                coverLetterSize: coverLetter ? coverLetter.size : 'N/A'
+            });
+
+            // In a real application, you would send this data to your backend server here.
+            /*
+            const formData = new FormData();
+            formData.append('fullName', fullName);
+            formData.append('email', email);
+            formData.append('phoneNumber', phoneNumber);
+            formData.append('positionApplied', positionApplied);
+            formData.append('resume', resume);
+            if (coverLetter) {
+                formData.append('coverLetter', coverLetter);
+            }
+
+            fetch('/api/job-applications', { // This endpoint would be on your server
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    jobMessageBox.classList.add('bg-green-100', 'text-green-800');
+                    jobMessageBox.textContent = 'Your job application has been submitted successfully. We will contact you if your qualifications match our requirements.';
+                    jobApplicationForm.reset(); // Clear form
+                    hideJobApplicationModal(); // Hide modal on success
+                } else {
+                    jobMessageBox.classList.add('bg-red-100', 'text-red-800');
+                    jobMessageBox.textContent = 'Application failed: ' + (data.message || 'Please try again.');
+                }
+                jobMessageBox.classList.remove('hidden');
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                jobMessageBox.classList.add('bg-red-100', 'text-red-800');
+                jobMessageBox.textContent = 'An error occurred during submission. Please try again later.';
+                jobMessageBox.classList.remove('hidden');
+            });
+            */
+
+            // Simulation for demonstration purposes:
+            setTimeout(() => {
+                jobMessageBox.classList.add('bg-green-100', 'text-green-800');
+                jobMessageBox.textContent = 'Your job application has been submitted successfully. We will contact you if your qualifications match our requirements. (Note: This is a simulation. Actual file storage and processing require a backend server.)';
+                jobMessageBox.classList.remove('hidden');
+                jobApplicationForm.reset(); // Clear form after simulated success
+                // Optionally hide the modal after a short delay for the user to read the success message
+                setTimeout(hideJobApplicationModal, 2000);
+            }, 1500); // Simulate network delay
+        });
+
+
+        // Initial render on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCards(tendersData, 'tenders-list', 'tender');
+            renderCards(jobsData, 'jobs-list', 'job');
+        });
+
+    </script>
+</body>
+</html>

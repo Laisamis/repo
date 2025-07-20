@@ -1,0 +1,71 @@
+<!-- Reusable Footer: Save as footer.html -->
+<footer class="bg-gray-800 text-gray-300 py-10 font-inter">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- About Section -->
+        <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Laisamis TTI</h3>
+            <p class="text-sm">
+                Dedicated to providing quality technical and vocational training, empowering students for a brighter future.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+                <li><a href="index.html" class="hover:text-blue-400 transition text-sm">Home</a></li>
+                <li><a href="academic.html" class="hover:text-blue-400 transition text-sm">Academic Programs</a></li>
+                <li><a href="about.html" class="hover:text-blue-400 transition text-sm">About Us</a></li>
+                <li><a href="tenders.html" class="hover:text-blue-400 transition text-sm">Tenders</a></li>
+                <li><a href="events.html" class="hover:text-blue-400 transition text-sm">Events</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+            <p class="text-sm">
+                Laisamis Town, Marsabit County, Kenya<br>
+                Email: <a href="mailto:info@laisamistech.ac.ke" class="hover:text-blue-400 transition">info@laisamistech.ac.ke</a><br>
+                Phone: <a href="tel:+254700303300" class="hover:text-blue-400 transition">0700 303300</a>
+            </p>
+        </div>
+
+        <!-- Social Media -->
+        <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                    <i data-lucide="facebook" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                    <i data-lucide="twitter" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
+        <p>&copy; <span id="current-year"></span> Laisamis TTI. All rights reserved.</p>
+    </div>
+
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Set current year for copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</footer>
+<!-- End of Footer -->
